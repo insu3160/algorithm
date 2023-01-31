@@ -9,21 +9,33 @@ public class Main {
         for (int i = 0; i < n; i++) {
             int a = scanner.nextInt();
             int b = scanner.nextInt();
-            maxNum[i] = max(a, b);
-            minNum[i] = a*b/maxNum[i];
+            if(a >= b){
+                for (int j = b; j >0 ; j--) {
+                    if (a % j == 0 && b % j == 0) {
+                        maxNum[i] = j;
+                        minNum[i] = a * b / j;
+                        break;
+                    }
+
+                }
+            }
+            else {
+                for (int j = a; j >0 ; j--) {
+                    if (a % j == 0 && b % j == 0) {
+                        maxNum[i] = j;
+                        minNum[i] = a * b / j;
+                        break;
+                    }
+
+                }
+            }
 
 
         }
-        for (int i = 0; i < minNum.length; i++) {
-            System.out.print(minNum[i]+" ");
-            System.out.println(maxNum[i]);
-        }
+        for (int p = 0; p < minNum.length; p++) {
+            System.out.print(minNum[p]+" ");
+            System.out.println(maxNum[p]);
+            }
 
-    }
-    public static int max(int a, int b){
-        if (a%b == 0){
-            return b;
-        }
-        return max(b ,a%b);
     }
 }
