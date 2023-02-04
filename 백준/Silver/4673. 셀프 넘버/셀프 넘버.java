@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        int ary[] = new int[100000];
+        int ary[] = new int[20000];
         int c = 0;
         for (int i = 1; i <= 10000; i++) {
             int d = i;
@@ -14,19 +14,10 @@ public class Main {
                     k /= 10;
                 }
             }
-            ary[i] = d;
+            ary[d] = 1;
         }
         for (int i = 1; i < 10000; i++) {
-            for (int j = 0; j < ary.length; j++) {
-                if (ary[j] == i){
-                    c = 0;
-                    break;
-                }
-                else {
-                    c = 1;
-                }
-            }
-            if (c == 1){
+            if (ary[i] == 0){
                 System.out.println(i);
             }
         }
